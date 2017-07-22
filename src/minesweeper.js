@@ -1,4 +1,4 @@
-/* Codecademy solution for generatePlayerBoard
+// Codecademy solution for generatePlayerBoard
 const generatePlayerBoard = (numberOfRows, numberOfColumns) => {
   let board = [];
   for (let rows = 0; rows < numberOfRows; rows++) {
@@ -11,27 +11,14 @@ const generatePlayerBoard = (numberOfRows, numberOfColumns) => {
   return board;
 };
 
-console.log(generatePlayerBoard(3, 3));
-*/
-
-const generatePlayerBoard = (numberOfRows, numberOfColumns) => {
-  let board = [];
-  for (let rows = 0; rows < numberOfRows; rows++) {
-    board.push([]);
-    for (let columns = 0; columns < numberOfColumns; columns++) {
-      board[rows].push(' ');
-    }
-  }
-  return board;
-};
-
 const generateBombBoard = (numberOfRows, numberOfColumns, numberOfBombs) => {
   let board = [];
   for (let rows = 0; rows < numberOfRows; rows++) {
-    board.push([]);
+    let row = [];
     for (let columns = 0; columns < numberOfColumns; columns++) {
-      board[rows].push(null);
+      row.push(null);
     }
+    board.push(row);
   }
   let numberOfBombsPlaced = 0;
   while (numberOfBombsPlaced < numberOfBombs) {
@@ -53,5 +40,7 @@ const printBoard = board => {
 let playerBoard = generatePlayerBoard(3, 4);
 let bombBoard = generateBombBoard(3, 4, 5);
 
-console.log('Player board: ' + printBoard(playerBoard));
-console.log('Bomb board: ' + printBoard(bombBoard));
+console.log('Player board: ');
+printBoard(playerBoard);
+console.log('Bomb board: ');
+printBoard(bombBoard);
